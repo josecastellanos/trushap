@@ -34,5 +34,33 @@ namespace TruchaShop.Models
         public string ProductoDescripcion { get; set; }
         public DateTime ProductoFecha { get; set; }
         public string ProductoLogo { get; set; }
+
+        public virtual ICollection<Existencia> Existencias { get; set; }
+
+        public int ObtenerPrecioReciente()
+        {
+            if (Existencias != null && Existencias.Count > 0)
+            {
+                return Existencias.FirstOrDefault(e => e.ExistenciaFechaAgotado == null && e.ExistenciaDisponible > 0).ExistenciaValor;
+            }
+            return 0;
+        }
+    }
+
+    public class Existencia
+    {
+        [Key]
+        public int ExistenciaId { get; set; }
+        [Key]
+        public int ExistenciaProductoId { get; set; }
+        [Key]
+        public int ExistenciaProductoCompaniaId { get; set; }
+        public int ExistenciaMonto { get; set; }
+        public int ExistenciaValor { get; set; }
+        public DateTime ExistenciaFechaDisponible { get; set; }
+        public int ExistenciaDisponible { get; set; }
+        public DateTime? ExistenciaFechaAgotado { get; set; }
+
+        public virtual ProductoCompania ProductoCompania { get; set; }
     }
 }

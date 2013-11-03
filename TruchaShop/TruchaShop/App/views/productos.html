@@ -1,15 +1,32 @@
 ﻿<div class="container">
-    <ul class="largeWidth no-margin-left" style="list-style-type:none" data-bind="foreach: productos">
+    <div class="product-box order-box-padding" data-bind="visible: order().length > 0">
+        <span class="price-by-amount">Your Order!</span>
+        <table class="largeWidth products-order-table" data-bind='template: { name: "orderTemplate", foreach: order }'/>
+        <span class="price-by-amount">Total: </span><span class="price">$</span><span class="price" data-bind="text: total" />
+    </div>
+    <form class="form-search margin-top">
+        <div class="input-append ">
+            <input type="text" class="span2 search-query">
+            <button type="submit" class="btn">Search</button>
+        </div>
+    </form>
+    <ul class="largeWidth no-margin-left" style="list-style-type:none" data-bind='template: { name: "productsTemplate", foreach: productos }'/>
+    <script id="productsTemplate" type="text/html">
         <li class="product-box">
             <div class="product-info-box">
                 <img class="img-rounded img-polaroid product-img" data-bind="attr: { src: $data.ProductoLogo }"/>
                 <h3 data-bind="text: $data.ProductoNombre"></h3>
                 <p data-bind="text: $data.ProductoDescripcion"></p>
                 <div class="margin-top">
-                    <input type="number" placeholder="Cantidad"/>
-                    <a class="btn btn-primary btn-large marginButton" href="#/add">Agregar</a>
+                    <span class="price">$</span><span class="price" data-bind="text: $data.Precio" /><span class="price-by-amount"> x </span><input type="number" data-bind="    value: $data.Cantidad" placeholder="Cantidad"/><span class="price-by-amount"> = </span><span class="price">$</span><span class="price" data-bind='    text: $data.Subtotal()' /><a class="btn btn-large marginButton" href="#" data-bind="click: $parent.addToOrder">Agregar</a>
                 </div>
             </div>
         </li>
-    </ul>
+    </script>
+    <script id="orderTemplate" type="text/html">
+        <tr>
+            <td><span class="order-font" data-bind="text: $data.Nombre"/></td>
+            <td><span class="order-price"> $</span><span class="order-price" data-bind="text: $data.Precio" /><span class="order-font"> x </span><span class="order-font" data-bind="text: $data.Cantidad"/><span class="order-font"> = </span><span class="order-price">$</span><span class="order-price" data-bind='text: $data.Subtotal' /></td>
+        </tr>
+    </script>
 </div>

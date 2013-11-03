@@ -21,6 +21,11 @@ namespace TruchaShop.Controllers
         {
             var productos = context.ProductosCompania.ToList();
             var productosModel = productos.Select(e => new ProductoCompaniaModel().InjectFrom(e)).Cast<ProductoCompaniaModel>().ToList();
+            foreach (var productoModel in productosModel)
+            {
+                productoModel.Precio =
+                    productos.FirstOrDefault(p => p.ProductoId == productoModel.ProductoId).ObtenerPrecioReciente();
+            }
             return this.Json(productosModel, JsonRequestBehavior.AllowGet);
         }
 

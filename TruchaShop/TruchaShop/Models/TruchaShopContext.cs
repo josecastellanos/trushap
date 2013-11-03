@@ -8,6 +8,7 @@ namespace TruchaShop.Models
     {
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<ProductoCompania> ProductosCompania { get; set; }
+        public DbSet<Existencia> Existencias { get; set; }
 
         public TruchaShopContext()
             : base("name=TruchaShopConnectionString")
@@ -40,6 +41,25 @@ namespace TruchaShop.Models
 
             #endregion
             
+            #region Existencia
+            
+            modelBuilder.Entity<Existencia>().ToTable("Existencia", "dbo");
+            modelBuilder.Entity<Existencia>().HasKey(m => new { m.ExistenciaId, m.ExistenciaProductoId });
+            modelBuilder.Entity<Existencia>()
+                .Property(m => m.ExistenciaId)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Existencia>()
+                .HasRequired(a => a.ProductoCompania)
+                .WithMany(m => m.Existencias)
+                .HasForeignKey(a => new { a.ExistenciaProductoId, a.ExistenciaProductoCompaniaId });
+            modelBuilder.Entity<Existencia>()
+                .HasRequired(a => a.ProductoCompania)
+                .WithMany(m => m.Existencias)
+                .HasForeignKey(a => new { a.ExistenciaProductoId, a.ExistenciaProductoCompaniaId })
+                .WillCascadeOnDelete(true);
+
+            #endregion
+
             base.OnModelCreating(modelBuilder);
         }
     }
