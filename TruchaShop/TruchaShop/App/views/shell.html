@@ -1,0 +1,29 @@
+﻿<div>
+    <div class="navbar navbar-fixed-top"><!--navbar-inverse navbar-fixed-top-->
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="nav-collapse collapse pull-right">
+                    <ul class="nav">
+                        <li data-bind="visible: isUserLoggedIn">
+                            <p class="navbar-text pull-right">
+                                Logged in as <span class="navbar-text" data-bind="text: user.PrimerNombre"></span>
+                                <a class="navbar-link" href="#" data-bind="click: logout">Logout</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-header">
+    <div class="imageMargin">
+        <h2 class="text-center">TruchaShop!</h2>
+    </div>
+</div>
+<div class="container-fluid page-host" data-bind="router: { transition: 'entrance', cacheViews: true }"></div>

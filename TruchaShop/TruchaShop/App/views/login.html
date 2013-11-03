@@ -1,0 +1,26 @@
+﻿<div class="login-body" >
+    <div class="container">
+        <form class="form-signin" data-bind="submit: login">
+            <fieldset>
+                <legend class="text-center form-signin-heading">Login</legend>
+                <div class="padding">
+                    <label>
+                        Username:
+                    <input class="input-block-level" data-bind="value: userToLogin.Username" placeholder="Username" required />
+                    </label>
+                </div>
+                <div class="padding">
+                    <label>
+                        Password:
+                    <input class="input-block-level" type="password" data-bind="value: userToLogin.Password" placeholder="Password" required />
+                    </label>
+                </div>
+                <div class="padding">
+                    <input class="btn btn-primary btn-large" type="submit" value="Login" />
+                    <a class="btn" href="#/register">Register</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
