@@ -7,6 +7,7 @@ namespace TruchaShop.Models
     public class TruchaShopContext : DbContext
     {
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<ProductoCompania> ProductosCompania { get; set; }
 
         public TruchaShopContext()
             : base("name=TruchaShopConnectionString")
@@ -25,6 +26,16 @@ namespace TruchaShop.Models
             modelBuilder.Entity<Usuario>().HasKey(m => m.UsuarioId);
             modelBuilder.Entity<Usuario>()
                 .Property(m => m.UsuarioId)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            #endregion
+
+            #region Producto_Compania
+
+            modelBuilder.Entity<ProductoCompania>().ToTable("Producto_Compania", "dbo");
+            modelBuilder.Entity<ProductoCompania>().HasKey(m => new { m.ProductoId, m.ProductoCompaniaId });
+            modelBuilder.Entity<ProductoCompania>()
+                .Property(m => m.ProductoId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             #endregion

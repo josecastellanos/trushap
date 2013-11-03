@@ -13,17 +13,10 @@ namespace TruchaShop.Controllers
     public class UsuarioController : Controller
     {
         TruchaShopContext context;
-        
+
         public UsuarioController()
         {
-            try
-            {
-                context = new TruchaShopContext();
-            }
-            catch (Exception e)
-            {
-                var ex = e.ToString();
-            }
+            context = new TruchaShopContext();
         }
 
         public JsonResult Login(LoginRequestModel login)

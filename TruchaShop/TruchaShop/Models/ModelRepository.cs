@@ -40,4 +40,15 @@ namespace TruchaShop.Models
         [DataMember]
         public string NombreCompleto { get; set; }
     }
+
+    [DataContract]
+    public class ProductoCompaniaModel
+    {
+        [DataMember]
+        public string Nombre { get; set; }
+        [DataMember]
+        public string Descripcion { get; set; }
+        [DataMember]
+        public string Logo { get; set; }
+    }
 }

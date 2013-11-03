@@ -23,4 +23,16 @@ namespace TruchaShop.Models
             return UsuarioPrimerNombre + " " + UsuarioSegundoNombre + " " + UsuarioPrimerApellido + " " + UsuarioSegundoApellido;
         }
     }
+
+    public class ProductoCompania
+    {
+        [Key]
+        public int ProductoId { get; set; }
+        [Key]
+        public int ProductoCompaniaId { get; set; }
+        public string ProductoNombre { get; set; }
+        public string ProductoDescripcion { get; set; }
+        public DateTime ProductoFecha { get; set; }
+        public string ProductoLogo { get; set; }
+    }
 }
