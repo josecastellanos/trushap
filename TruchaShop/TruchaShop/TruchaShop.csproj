@@ -173,8 +173,10 @@
   <ItemGroup>
     <Content Include="App\main.js" />
     <Content Include="App\viewmodels\login.js" />
+    <Content Include="App\viewmodels\productos.js" />
     <Content Include="App\viewmodels\shell.js" />
     <Content Include="App\views\login.html" />
+    <Content Include="App\views\productos.html" />
     <Content Include="App\views\shell.html" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />

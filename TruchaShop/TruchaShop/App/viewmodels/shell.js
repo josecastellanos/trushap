@@ -8,7 +8,7 @@
             app.showMessage('Search not yet implemented...');
         },
         
-        isUserLoggedIn: ko.observable(false),
+        isUserLoggedIn: ko.observable(true),
         
         user: {
             PrimerNombre: ko.observable(""),
@@ -19,7 +19,7 @@
             router.map([
                 { route: '', title: 'TruchaShop!', moduleId: 'viewmodels/login', nav: true },
                 { route: 'login', moduleId: 'viewmodels/login', nav: true },
-                { route: 'meetings', moduleId: 'viewmodels/meetinfo/show', nav: true },
+                { route: 'productos', moduleId: 'viewmodels/productos', nav: true },
                 { route: 'details/:id', moduleId: 'viewmodels/meetinfo/details', nav: true },
                 { route: 'add(/:id)', moduleId: 'viewmodels/meetinfo/add', nav: true }
             ]).buildNavigationModel();

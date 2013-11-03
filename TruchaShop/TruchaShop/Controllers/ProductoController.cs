@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Omu.ValueInjecter;
 using TruchaShop.Models;
 
 namespace TruchaShop.Controllers
@@ -16,16 +17,11 @@ namespace TruchaShop.Controllers
             context = new TruchaShopContext();
         }
 
-        public JsonResult Login(LoginRequestModel login)
+        public JsonResult ObtenerProductos()
         {
-            var meetingEntity = context.ProductosCompania.
-            var meetingModel = new MeetingModel();
-            if (meetingEntity != null)
-            {
-                meetingModel.InjectFrom(meetingEntity);
-                meetingModel.Attendees = meetingEntity.Attendees.Select(a => a.Name).ToArray();
-            }
-            return this.Json(meetingModel);
+            var productos = context.ProductosCompania.ToList();
+            var productosModel = productos.Select(e => new ProductoCompaniaModel().InjectFrom(e)).Cast<ProductoCompaniaModel>().ToList();
+            return this.Json(productosModel, JsonRequestBehavior.AllowGet);
         }
 
     }

@@ -76,3 +76,15 @@
         padding-right: 5px;
     }
 }
+
+.product-box {
+    border: 2px solid;
+    border-radius: 25px;
+    box-shadow: 10px 5px 5px #887788;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.no-margin-left {
+    margin-left: 0;
+}

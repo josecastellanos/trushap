@@ -1,0 +1,11 @@
+﻿<div class="container">
+    <ul class="largeWidth no-margin-left" style="list-style-type:none" data-bind="foreach: productos">
+        <li>
+            <div class="product-box">
+                <h1 data-bind="text: $data.ProductoNombre"></h1>
+                <h2 data-bind="text: $data.ProductoDescripcion"></h2>
+                <img class="img-rounded img-polaroid" data-bind="attr: { src: $data.ProductoLogo }"/>
+            </div>
+        </li>
+    </ul>
+</div>

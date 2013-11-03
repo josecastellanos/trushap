@@ -20,7 +20,7 @@
                         shell.isUserLoggedIn(true);
                         shell.user.PrimerNombre(response.PrimerNombre);
                         shell.user.NombreCompleto(response.NombreCompleto);
-                        //router.navigate('#/meetings');
+                        router.navigate('#/productos');
                     } else {
                         shell.isUserLoggedIn(false);
                         app.showMessage("You are not an user!");
