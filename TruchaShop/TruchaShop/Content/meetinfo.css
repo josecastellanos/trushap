@@ -10,7 +10,7 @@
 }
 
 .imageMargin {
-    padding-top: 40px;
+    padding-top: 60px;
 }
 
 .padding {
@@ -79,12 +79,62 @@
 
 .product-box {
     border: 2px solid;
-    border-radius: 25px;
+    border-radius: 20px;
     box-shadow: 10px 5px 5px #887788;
     padding-left: 15px;
     margin-bottom: 20px;
+    background: rgba(47, 164, 231, 0.2);
+}
+
+.product-info-box {
+    border: 2px solid;
+    border-radius: 4px;
+    padding-left: 15px;
+    margin-right: 5px;
+    background: #efe;
 }
 
 .no-margin-left {
     margin-left: 0;
+}
+
+h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+ 
+li div img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+
+li div div {
+  float: right;
+  margin: 0 15px 0 0;
+}
+ 
+li div p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+ 
+li {
+  padding: 10px;
+  overflow: auto;
+}
+ 
+.product-info-box:hover {
+  background: #eee;
+}
+
+.product-img {
+    margin-top: 15px;
+    border: 6px solid rgba(0,0,0,0.4);
+    width: 100px;
+}
+
+input[type=number] {
+    width: 75px;
+}
+
+.margin-top {
+    margin-top: 10px;
 }

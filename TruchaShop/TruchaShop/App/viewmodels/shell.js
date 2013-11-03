@@ -8,7 +8,7 @@
             app.showMessage('Search not yet implemented...');
         },
         
-        isUserLoggedIn: ko.observable(true),
+        isUserLoggedIn: ko.observable(false),
         
         user: {
             PrimerNombre: ko.observable(""),
